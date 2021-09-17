@@ -9,15 +9,6 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  int _selectedIndex = 0;
-  Color iconDefault = Color(0xFF9CB880);
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   Card chats(String chatCount, Color colorOfBadge) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
@@ -53,6 +44,18 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Color(0xFF387007),
+          ),
+          onPressed: () {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => const MyNavigationBar()),
+            // );
+          },
+        ),
         backgroundColor: Colors.white,
         title: Center(
           child: Text(
@@ -60,51 +63,26 @@ class _ChatPageState extends State<ChatPage> {
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              size: 30.0,
+              color: Color(0xFF387007),
+            ),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // Padding(
-          //   padding: const EdgeInsets.all(16.0),
           chats('5', Color(0xFF387007)),
           chats('3', Color(0xFF387007)),
           chats('2', Color(0xFF387007)),
           chats('', Color(0xFFE4E4E4)),
           chats('', Color(0xFFE4E4E4)),
-          //),
         ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: iconDefault),
-            label: 'Home',
-            backgroundColor: Color(0xFF387007),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer, color: iconDefault),
-            label: 'Chat',
-            backgroundColor: Color(0xFF387007),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.help, color: iconDefault),
-            label: 'Requirement',
-            backgroundColor: Color(0xFF387007),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.local_shipping, color: iconDefault),
-            label: 'Orders',
-            backgroundColor: Color(0xFF387007),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle, color: iconDefault),
-            label: 'Profile',
-            backgroundColor: Color(0xFF387007),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        onTap: _onItemTapped,
       ),
     );
   }
