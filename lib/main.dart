@@ -32,6 +32,9 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
   final List _pages = [
     HomePage(),
     ChatPage(),
+    HomePage(),
+    HomePage(),
+    HomePage(),
   ];
 
   void onItemTapped(int index) {
