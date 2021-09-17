@@ -33,7 +33,7 @@ class _ChatPageState extends State<ChatPage> {
         ),
       ),
       elevation: 10.0,
-      color: Color(0xFFE4E4E4),
+      color: Colors.grey[300],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(50),
       ),
@@ -49,12 +49,7 @@ class _ChatPageState extends State<ChatPage> {
             Icons.arrow_back,
             color: Color(0xFF387007),
           ),
-          onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => const MyNavigationBar()),
-            // );
-          },
+          onPressed: () {},
         ),
         backgroundColor: Colors.white,
         title: Center(
@@ -80,8 +75,27 @@ class _ChatPageState extends State<ChatPage> {
           chats('5', Color(0xFF387007)),
           chats('3', Color(0xFF387007)),
           chats('2', Color(0xFF387007)),
-          chats('', Color(0xFFE4E4E4)),
-          chats('', Color(0xFFE4E4E4)),
+          Card(
+            margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+            child: ListTile(
+              leading: CircleAvatar(
+                radius: 30.0,
+                backgroundImage: AssetImage('images/spiderman.jpg'),
+              ),
+              title: Text('Lorem Ipsum'),
+              subtitle: Text('Did you get my order'),
+              trailing: Column(
+                children: [
+                  Text('12:30'),
+                ],
+              ),
+            ),
+            elevation: 10.0,
+            color: Colors.grey[300],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50),
+            ),
+          ),
         ],
       ),
     );
